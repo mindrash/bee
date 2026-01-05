@@ -24,7 +24,18 @@ A web-based spelling practice application with text-to-speech functionality, des
 
 ## Installation
 
-### Quick Start
+### Option 1: Download ZIP (Easiest)
+
+1. **Download the latest release**
+   - Go to [Releases](https://github.com/mindrash/bee/releases/latest)
+   - Download the `Source code (zip)` file
+   - Extract the ZIP file to a folder on your computer
+
+2. **Open in your browser**
+   - Double-click the `index.html` file in the extracted folder
+   - Or right-click → Open with → Your web browser
+
+### Option 2: Clone Repository (For Developers)
 
 1. **Clone the repository**
    ```bash
