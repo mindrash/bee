@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spelling Bee Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🐝 Spelling Bee Practice</h1>
+        
+        <div id="uploadSection" class="section">
+            <h2>Upload Your Spelling Words</h2>
+            <p class="instructions">Upload a CSV file with spelling words (one word per line or comma-separated)</p>
+            <input type="file" id="csvFile" accept=".csv">
+            <button id="loadBtn" class="btn btn-primary">Load Words</button>
+        </div>
+
+        <div id="practiceSection" class="section hidden">
+            <div class="word-info">
+                <div class="info-left">
+                    <p class="word-counter">Word <span id="currentWord">1</span> of <span id="totalWords">0</span></p>
+                    <p class="score">Score: <span id="correct">0</span> correct, <span id="incorrect">0</span> incorrect</p>
+                    <p class="timer">⏱️ Time: <span id="sessionTimer">00:00</span></p>
+                </div>
+                <button id="viewIncorrectBtn" class="btn btn-view-incorrect">📝 View Incorrect</button>
+            </div>
+
+            <div class="practice-area">
+                <div class="voice-selector">
+                    <label for="voiceOption">Voice:</label>
+                    <select id="voiceOption">
+                        <option value="female">US Female</option>
+                        <option value="male">US Male</option>
+                        <option value="uk">UK English</option>
+                        <option value="clear">Extra Clear</option>
+                        <option value="alternative">Alternative</option>
+                    </select>
+                </div>
+                
+                <button id="playBtn" class="btn btn-play">🔊 Play Word</button>
+                
+                <button id="playSentenceBtn" class="btn btn-sentence">📖 Hear in Sentence</button>
+                
+                <button id="showDefBtn" class="btn btn-hint">💡 Show Definition</button>
+                
+                <div id="hintBox" class="hint-box hidden"></div>
+                
+                <div class="input-group">
+                    <input type="text" id="userInput" placeholder="Type the spelling here..." autocomplete="off">
+                    <button id="submitBtn" class="btn btn-primary">Submit</button>
+                </div>
+
+                <div id="feedback" class="feedback hidden"></div>
+
+                <div class="button-group">
+                    <button id="nextBtn" class="btn btn-secondary hidden">Next Word</button>
+                    <button id="skipBtn" class="btn btn-secondary">Skip</button>
+                    <button id="resetBtn" class="btn btn-secondary">New List</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Incorrect Words Modal -->
+        <div id="incorrectModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Incorrect Words</h2>
+                    <div class="modal-buttons">
+                        <button id="copyIncorrectBtn" class="btn btn-copy">📋 Copy</button>
+                        <button id="closeModal" class="btn-close">&times;</button>
+                    </div>
+                </div>
+                <div id="incorrectList" class="incorrect-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="spelling_bee.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
