@@ -1,4 +1,12 @@
-Initial release of the Spelling Bee Practice App
+v1.1.0 - January 17, 2026
+
+New Features:
+- Special character picker for accented letters and diacritical marks (á, é, ñ, ç, etc.)
+- Disabled autocorrect, autocapitalize, and spellcheck on input field for accurate spelling practice
+
+---
+
+v1.0.0 - Initial Release
 
 Features:
 - Text-to-speech with 5 voice options
