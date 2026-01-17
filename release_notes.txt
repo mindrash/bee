@@ -1,0 +1,11 @@
+Initial release of the Spelling Bee Practice App
+
+Features:
+- Text-to-speech with 5 voice options
+- Smart retry system for incorrect words
+- Word definitions, origins, and example sentences
+- Session tracking with timer
+- CSV file upload for custom word lists
+- 457-word default spelling bee list included
+
+Download the zip, extract it, and open index.html in your browser. No installation required!

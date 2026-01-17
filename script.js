@@ -36,6 +36,10 @@ const incorrectModal = document.getElementById('incorrectModal');
 const closeModal = document.getElementById('closeModal');
 const incorrectList = document.getElementById('incorrectList');
 const copyIncorrectBtn = document.getElementById('copyIncorrectBtn');
+const specialCharsBtn = document.getElementById('specialCharsBtn');
+const specialCharsModal = document.getElementById('specialCharsModal');
+const closeSpecialChars = document.getElementById('closeSpecialChars');
+const specialCharsGrid = document.getElementById('specialCharsGrid');
 
 // Event listeners
 loadBtn.addEventListener('click', loadCSV);
@@ -49,6 +53,8 @@ showDefBtn.addEventListener('click', showDefinition);
 viewIncorrectBtn.addEventListener('click', showIncorrectWords);
 closeModal.addEventListener('click', hideIncorrectWords);
 copyIncorrectBtn.addEventListener('click', copyIncorrectWords);
+specialCharsBtn.addEventListener('click', showSpecialChars);
+closeSpecialChars.addEventListener('click', hideSpecialChars);
 
 // Allow Enter key to submit
 userInput.addEventListener('keypress', (e) => {
@@ -544,6 +550,55 @@ function copyIncorrectWords() {
             alert('Failed to copy to clipboard');
             console.error('Copy failed:', err);
         });
+}
+
+// Special characters functions
+function showSpecialChars() {
+    // Common special characters used in English borrowings
+    const specialChars = [
+        'á', 'à', 'â', 'ä', 'ã', 'å', 'ā',
+        'é', 'è', 'ê', 'ë', 'ē',
+        'í', 'ì', 'î', 'ï', 'ī',
+        'ó', 'ò', 'ô', 'ö', 'õ', 'ō',
+        'ú', 'ù', 'û', 'ü', 'ū',
+        'ñ', 'ç', 'ş', 'ß',
+        'æ', 'œ', 'ø',
+        'ý', 'ÿ'
+    ];
+    
+    // Create buttons for each special character
+    specialCharsGrid.innerHTML = '';
+    specialChars.forEach(char => {
+        const btn = document.createElement('button');
+        btn.className = 'special-char-btn';
+        btn.textContent = char;
+        btn.addEventListener('click', () => insertSpecialChar(char));
+        specialCharsGrid.appendChild(btn);
+    });
+    
+    specialCharsModal.classList.remove('hidden');
+}
+
+function hideSpecialChars() {
+    specialCharsModal.classList.add('hidden');
+}
+
+function insertSpecialChar(char) {
+    const input = userInput;
+    const startPos = input.selectionStart;
+    const endPos = input.selectionEnd;
+    const currentValue = input.value;
+    
+    // Insert character at cursor position
+    input.value = currentValue.substring(0, startPos) + char + currentValue.substring(endPos);
+    
+    // Set cursor position after inserted character
+    const newPos = startPos + 1;
+    input.setSelectionRange(newPos, newPos);
+    input.focus();
+    
+    // Close modal
+    hideSpecialChars();
 }
 
 // Reset entire app

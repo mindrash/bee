@@ -151,6 +151,21 @@ input[type="text"]:focus {
     box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
 }
 
+.btn-special-chars {
+    background: #ec4899;
+    color: white;
+    font-size: 1.1em;
+    padding: 15px 20px;
+    min-width: 60px;
+    flex-shrink: 0;
+}
+
+.btn-special-chars:hover {
+    background: #db2777;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+}
+
 .hint-box {
     padding: 15px;
     border-radius: 10px;
@@ -406,6 +421,41 @@ input[type="text"]:focus {
     color: #7f1d1d;
     font-size: 0.95em;
     line-height: 1.4;
+}
+
+.special-chars-modal {
+    max-width: 500px;
+}
+
+.special-chars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.special-char-btn {
+    background: #f3f4f6;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+    color: #374151;
+}
+
+.special-char-btn:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+.special-char-btn:active {
+    transform: translateY(0);
 }
 
 @media (max-width: 600px) {
